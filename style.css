@@ -34,3 +34,22 @@ font-family: 'Orbitron', sans-serif;
 .text-white{
     color: var(--white);
 }
+
+/* NAVBAR */
+.nav-link{
+    color: var(--yellow);
+    font-weight: 800;
+}
+
+.navbar{
+    height: 75px;
+    transition: 0.7s;
+}
+
+.nav-link:hover{
+    color: var(--white)
+}
+
+.logo{
+    width: 50px;
+}
