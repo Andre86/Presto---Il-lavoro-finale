@@ -152,22 +152,55 @@ observer.observe(first);
 // let swiperWrapper = document.querySelector('.swiper-wrapper');
 
 
+let reviews = [
+    {user: 'Andrea' , description: 'Un sito stupendo!', rank: 5},
+    {user: 'Mirko' , description: 'Un sito top!', rank: 4},
+    {user: 'Gianna' , description: 'Bello', rank: 3},
+    {user: 'Anna' , description: 'Ottimo riferimento', rank: 5},
+    {user: 'Vilma' , description: 'Che novità!!!', rank: 5},
+]
 
+let swiperWrapper = document.querySelector('.swiper-wrapper');
 
+reviews.forEach( (recensione)=>{
+let div = document.createElement('div');
+div.classList.add('swiper-slide');
+div.innerHTML = `
+<div class="card-review">
+<p class="lead text-center">
+  ${recensione.description}
+  <p class="h4 text-center">${recensione.user}</p>
+  <div class="d-flex justify-content-center star">
+    
+  </div>
+</p>
+      </div>`;
+      swiperWrapper.appendChild(div);
+});
 
+let stars = document.querySelectorAll('.star');
+stars.forEach( (star, index)=>{
+for(let i = 1; i <= reviews[index].rank; i++ ){
+    let icon = document.createElement('i');
+    icon.classList.add('fa-brands' , 'fa-sith');
+    star.appendChild(icon);
+}
+});
 
-// const swiper = new Swiper('.swiper', {
-//     // Optional parameters
-//     direction: 'horizontal',
-//     loop: true,
+// SWIPER
+
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'hotizontal',
+    loop: true,
     
     
     
-//     // Navigation arrows
-//     navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//     },
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
     
     
-// });
+});

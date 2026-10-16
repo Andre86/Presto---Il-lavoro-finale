@@ -124,16 +124,16 @@ body{
     font-weight: 900;
 }
 
-/* Swiper */
-/* 
+/* Swiper */ 
+
 .swiper{
-    height: 600px;
+    height: 400px;
 }
 
 .card-review{
     height: 250px;
     width: 500px;
-    border: 2px solid var(--yellow);
+    border: solid var(--green);
     border-radius: 20px;
 }
 
@@ -141,7 +141,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
 
 /*  Pagina degli annunci */
 
