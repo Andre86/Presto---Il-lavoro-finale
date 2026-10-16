@@ -140,16 +140,6 @@ let observer = new IntersectionObserver( (entries)=>{
 observer.observe(first);
 
 
-// let reviews = [
-//     {user: 'Andrea', description: `bel sito`, rank: 5},
-//     {user: 'Andrea', description: `bella li`, rank: 5},   
-//     {user: 'Andrea', description: `daje`, rank: 5},
-    
-// ]
-
-
-
-// let swiperWrapper = document.querySelector('.swiper-wrapper');
 
 
 let reviews = [
@@ -179,19 +169,31 @@ div.innerHTML = `
 });
 
 let stars = document.querySelectorAll('.star');
+
+
 stars.forEach( (star, index)=>{
+
 for(let i = 1; i <= reviews[index].rank; i++ ){
     let icon = document.createElement('i');
     icon.classList.add('fa-brands' , 'fa-sith');
     star.appendChild(icon);
 }
+
+let difference = 5 - reviews[index].rank;
+
+for(let i = 1; i <= difference; i++ ){
+    let icon = document.createElement('i');
+    icon.classList.add('fa-solid' , 'fa-bahai');
+    star.appendChild(icon);
+}
+
 });
 
 // SWIPER
 
 const swiper = new Swiper('.swiper', {
     // Optional parameters
-    direction: 'hotizontal',
+    // direction: 'hotizontal',
     loop: true,
     
     
