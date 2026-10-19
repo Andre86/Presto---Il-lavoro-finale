@@ -79,10 +79,6 @@ createInterval(200, second, 5);
 createInterval(250, third, 10);
 
 
-
-
-
-
 // let counter = 0; - QUESTA E UNA PROVA - 
 
 // let interval = setInterval( ()=>{
@@ -116,11 +112,8 @@ createInterval(250, third, 10);
 // }
 // } , 10 );
 
-
-
 // IntersectionObserver: è una Classe del Browser che si occupa di far scattare una funzione nel momento in cui nel suo browser sono visibili con gli elementi HTML che noi gli indichiamo
 // new = keyword che mi permette di GENERARE UN OGGETTO PARTENDO DALLA CLASSE
-
 
 // in questo oggetto scatta una CallBack
 
@@ -153,9 +146,9 @@ let reviews = [
 let swiperWrapper = document.querySelector('.swiper-wrapper');
 
 reviews.forEach( (recensione)=>{
-let div = document.createElement('div');
-div.classList.add('swiper-slide');
-div.innerHTML = `
+    let div = document.createElement('div');
+    div.classList.add('swiper-slide');
+    div.innerHTML = `
 <div class="card-review">
 <p class="lead text-center">
   ${recensione.description}
@@ -165,28 +158,28 @@ div.innerHTML = `
   </div>
 </p>
       </div>`;
-      swiperWrapper.appendChild(div);
+    swiperWrapper.appendChild(div);
 });
 
 let stars = document.querySelectorAll('.star');
 
 
 stars.forEach( (star, index)=>{
-
-for(let i = 1; i <= reviews[index].rank; i++ ){
-    let icon = document.createElement('i');
-    icon.classList.add('fa-brands' , 'fa-sith');
-    star.appendChild(icon);
-}
-
-let difference = 5 - reviews[index].rank;
-
-for(let i = 1; i <= difference; i++ ){
-    let icon = document.createElement('i');
-    icon.classList.add('fa-solid' , 'fa-bahai');
-    star.appendChild(icon);
-}
-
+    
+    for(let i = 1; i <= reviews[index].rank; i++ ){
+        let icon = document.createElement('i');
+        icon.classList.add('fa-brands' , 'fa-sith');
+        star.appendChild(icon);
+    }
+    
+    let difference = 5 - reviews[index].rank;
+    
+    for(let i = 1; i <= difference; i++ ){
+        let icon = document.createElement('i');
+        icon.classList.add('fa-solid' , 'fa-bahai');
+        star.appendChild(icon);
+    }
+    
 });
 
 // SWIPER

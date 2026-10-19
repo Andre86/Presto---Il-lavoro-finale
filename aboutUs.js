@@ -1,10 +1,10 @@
 let opener = document.querySelector('.opener');
 let circle = document.querySelector('.circle');
 let teachers = [
-    {name: 'Andrea', description: 'Docente', url: './media/anakin.png'},
-    {name: 'Matteo', description: 'Docente', url: './media/palpatine.jpeg'},
-    {name: 'Gianna', description: 'Docente', url: './media/anakin.png'},
-    {name: 'Lella', description: 'Docente', url: './media/anakin.png'},
+    {name: 'Chewbie', description: 'Docente', url: './media/chewie.jfif'},
+    {name: 'Star', description: 'Docente', url: './media/dark.jfif'},
+    {name: 'Mando', description: 'Docente', url: './media/mando.jfif'},
+    {name: 'Vader', description: 'Docente, esperto in cattiveria', url: './media/vader.jfif'},
 ];
 
 teachers.forEach( (docente)=>{

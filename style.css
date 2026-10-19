@@ -1,12 +1,12 @@
 
 
 *{
- font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 h1, h2, h3, h4, .h1, .h2, .h3, .h4{
-font-family: 'Orbitron', sans-serif;
-
+    font-family: 'Orbitron', sans-serif;
+    
 }
 
 :root{
@@ -71,7 +71,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
 }
- 
+
 .btn-custom{
     color: var(--yellow);
     background-color: var(--black);
@@ -108,7 +108,7 @@ body{
     transition: 0.5s;
     background-color: var(--black);
     color: var(--green);
-
+    
 }
 
 @media screen and (max-width: 600px){
@@ -221,7 +221,7 @@ body{
 .flip-card{
     height: 400px;
     width: 250px;
-  
+    
 }
 
 .flip-card:hover > .inner{
