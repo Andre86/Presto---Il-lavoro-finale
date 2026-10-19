@@ -21,60 +21,60 @@ fetch('./annunci.json').then( (response)=> response.json()  ).then( (data)=> {
     let cardWrapper = document.querySelector('#cardWrapper');
     
     
-        
-        
-        // ora bisogna evitare che le categorie vengano duplicate a cazzo di cane, VEDI SOTTO DUE OPZIONI, LA PRIMA:
-        
-        // let uniqueCategories = [];
-        
-        // // !true
-        // // !false
-        
-        // // categories.forEach( (category)=> {
-            // //     if(!uniqueCategories.includes(category) ){
-        // //         uniqueCategories.push(category)
-        //     // }
-        // });
-        
-        // SET(): classe che restituisce, da un array, un oggetto SET che contiene solo valori univoci
-        // array.from(): da array like ad array
+    
+    
+    // ora bisogna evitare che le categorie vengano duplicate a cazzo di cane, VEDI SOTTO DUE OPZIONI, LA PRIMA:
+    
+    // let uniqueCategories = [];
+    
+    // // !true
+    // // !false
+    
+    // // categories.forEach( (category)=> {
+        // //     if(!uniqueCategories.includes(category) ){
+    // //         uniqueCategories.push(category)
+    //     // }
+    // });
+    
+    // SET(): classe che restituisce, da un array, un oggetto SET che contiene solo valori univoci
+    // array.from(): da array like ad array
     //     function radioCreate(){
-        
+    
     //     let categories = data.map( (annuncio)=> annuncio.category );
-        
+    
     //     console.log(categories);
     //     let uniqueCategories = Array.from(new Set(categories));
     //     uniqueCategories.forEach( (category)=> {
-    //         let div = document.createElement('div');
+        //         let div = document.createElement('div');
     //         div.classList.add('form-check');
-            
+    
     //         div.innerHTML= `
     //     <input class="form-check-input" type="radio" name="categories" id=${category}>
     //               <label class="form-check-label" for=${category}>
     //                 ${category}
-                         
+    
     //                </label>
-                   
+    
     //     `;
-            
+    
     //         radioWrapper.appendChild(div);
-            
+    
     //     });
-        
-        
+    
+    
     // }
-function radioCreate() {
-    let categories = data.map((annuncio) => annuncio.category);
-
-    let uniqueCategories = Array.from(new Set(categories));
-
-    // uniqueCategories.unshift('All');
-
-    uniqueCategories.forEach((category, index) => {
-        let div = document.createElement('div');
-        div.classList.add('form-check');
-
-        div.innerHTML = `
+    function radioCreate() {
+        let categories = data.map((annuncio) => annuncio.category);
+        
+        let uniqueCategories = Array.from(new Set(categories));
+        
+        // uniqueCategories.unshift('All');
+        
+        uniqueCategories.forEach((category, index) => {
+            let div = document.createElement('div');
+            div.classList.add('form-check');
+            
+            div.innerHTML = `
             <input
                 class="form-check-input"
                 type="radio"
@@ -83,16 +83,16 @@ function radioCreate() {
                 value="${category}"
                 ${index === 0 ? 'checked' : ''}
             >
-
+            
             <label class="form-check-label" for="${category}">
                 ${category === 'All' ? 'Tutte le categorie' : category}
             </label>
         `;
-
-        radioWrapper.appendChild(div);
-    });
-}
-
+            
+            radioWrapper.appendChild(div);
+        });
+    }
+    
     radioCreate();
     
     function truncateWord(string){
@@ -133,35 +133,35 @@ function radioCreate() {
     let radioButtons = document.querySelectorAll('.form-check-input');
     
     // function filterBy(array){
-        
-        
+    
+    
     //     let categoria = Array.from(radioButtons).find( (bottone)=> bottone.checked ).id;
     //     console.log(categoria);
     //     if(categoria != 'All'){
-            
+    
     //         let filtered = data.filter( (annuncio)=> annuncio.category == categoria ) ;
     //         console.log(filtered);   
     //         return filtered;
     //     }else{
-    //         return
+        //         return
     //     }
     // }
     function filterBy(array) {
-    let selectedRadio = Array.from(radioButtons)
+        let selectedRadio = Array.from(radioButtons)
         .find((bottone) => bottone.checked);
-
-    let categoria = selectedRadio.id;
-
-    if (categoria === 'All') {
-        return array;
+        
+        let categoria = selectedRadio.id;
+        
+        if (categoria === 'All') {
+            return array;
+        }
+        
+        let filtered = array.filter((annuncio) => {
+            return annuncio.category === categoria;
+        });
+        
+        return filtered;
     }
-
-    let filtered = array.filter((annuncio) => {
-        return annuncio.category === categoria;
-    });
-
-    return filtered;
-}
     
     radioButtons.forEach((button) => {
         button.addEventListener('click', ()=> {
@@ -173,16 +173,16 @@ function radioCreate() {
     let priceInput = document.querySelector('#priceInput');
     let priceValue = document.querySelector('#priceValue');
     
-
-        //  catturiamo l input e settiamo proprietà max il valore più alto del prezzo di ogni prodotto. per farlo ho bisogno di un array che contenga solo i prezzi, lo ordino in maniera crescente e prendere l elemento col valore più alto
-        function setPriceInput(array) {
-    let prices = array.map((annuncio) => Number(annuncio.price));
-    let maxPrice = Math.ceil(Math.max(...prices));
-
-    priceInput.max = maxPrice;
-    priceInput.value = maxPrice;
-    priceValue.innerHTML = maxPrice;
-}
+    
+    //  catturiamo l input e settiamo proprietà max il valore più alto del prezzo di ogni prodotto. per farlo ho bisogno di un array che contenga solo i prezzi, lo ordino in maniera crescente e prendere l elemento col valore più alto
+    function setPriceInput(array) {
+        let prices = array.map((annuncio) => Number(annuncio.price));
+        let maxPrice = Math.ceil(Math.max(...prices));
+        
+        priceInput.max = maxPrice;
+        priceInput.value = maxPrice;
+        priceValue.innerHTML = maxPrice;
+    }
     
     setPriceInput( filterBy(data));
     
@@ -202,7 +202,7 @@ function radioCreate() {
     function filterByWord(array){
         
         let filtered = array.filter( (annuncio)=> annuncio.name.toLowerCase().includes(wordInput.value.toLowerCase()) );
-       return filtered;
+        return filtered;
     }
     wordInput.addEventListener('input' , ()=>{
         globalFilter();
